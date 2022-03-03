@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/projects/sdk/coding" name="coding">
+                <projects>
+                  <project path="$PROJECT_DIR$/projects/sdk/coding" />
+                  <project path="$PROJECT_DIR$/projects/sdk/coding/aar-to-jar-plugin" />
+                  <project path="$PROJECT_DIR$/projects/sdk/coding/android-jar" />
+                  <project path="$PROJECT_DIR$/projects/sdk/coding/code-generator" />
+                  <project path="$PROJECT_DIR$/projects/sdk/coding/common-jar-settings" />
+                  <project path="$PROJECT_DIR$/projects/sdk/coding/get-android-jar" />
+                  <project path="$PROJECT_DIR$/projects/sdk/coding/java-build-config" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/projects/sdk/core" name="core">
+                <projects>
+                  <project path="$PROJECT_DIR$/projects/sdk/core" />
+                  <project path="$PROJECT_DIR$/projects/sdk/core/activity-container" />
+                  <project path="$PROJECT_DIR$/projects/sdk/core/common" />
+                  <project path="$PROJECT_DIR$/projects/sdk/core/gradle-plugin" />
+                  <project path="$PROJECT_DIR$/projects/sdk/core/load-parameters" />
+                  <project path="$PROJECT_DIR$/projects/sdk/core/loader" />
+                  <project path="$PROJECT_DIR$/projects/sdk/core/manager" />
+                  <project path="$PROJECT_DIR$/projects/sdk/core/manager-db-test" />
+                  <project path="$PROJECT_DIR$/projects/sdk/core/manifest-parser" />
+                  <project path="$PROJECT_DIR$/projects/sdk/core/runtime" />
+                  <project path="$PROJECT_DIR$/projects/sdk/core/transform" />
+                  <project path="$PROJECT_DIR$/projects/sdk/core/transform-kit" />
+                  <project path="$PROJECT_DIR$/projects/sdk/core/utils" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/projects/sdk/dynamic" name="dynamic">
+                <projects>
+                  <project path="$PROJECT_DIR$/projects/sdk/dynamic" />
+                  <project path="$PROJECT_DIR$/projects/sdk/dynamic/dynamic-apk" />
+                  <project path="$PROJECT_DIR$/projects/sdk/dynamic/dynamic-host" />
+                  <project path="$PROJECT_DIR$/projects/sdk/dynamic/dynamic-host-multi-loader-ext" />
+                  <project path="$PROJECT_DIR$/projects/sdk/dynamic/dynamic-loader" />
+                  <project path="$PROJECT_DIR$/projects/sdk/dynamic/dynamic-loader-impl" />
+                  <project path="$PROJECT_DIR$/projects/sdk/dynamic/dynamic-manager" />
+                  <project path="$PROJECT_DIR$/projects/sdk/dynamic/dynamic-manager-multi-loader-ext" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
+        <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/projects/sdk/coding" />
+            <option value="$PROJECT_DIR$/projects/sdk/coding/aar-to-jar-plugin" />
+            <option value="$PROJECT_DIR$/projects/sdk/coding/android-jar" />
+            <option value="$PROJECT_DIR$/projects/sdk/coding/code-generator" />
+            <option value="$PROJECT_DIR$/projects/sdk/coding/common-jar-settings" />
+            <option value="$PROJECT_DIR$/projects/sdk/coding/get-android-jar" />
+            <option value="$PROJECT_DIR$/projects/sdk/coding/java-build-config" />
+            <option value="$PROJECT_DIR$/projects/sdk/core" />
+            <option value="$PROJECT_DIR$/projects/sdk/core/activity-container" />
+            <option value="$PROJECT_DIR$/projects/sdk/core/common" />
+            <option value="$PROJECT_DIR$/projects/sdk/core/gradle-plugin" />
+            <option value="$PROJECT_DIR$/projects/sdk/core/load-parameters" />
+            <option value="$PROJECT_DIR$/projects/sdk/core/loader" />
+            <option value="$PROJECT_DIR$/projects/sdk/core/manager" />
+            <option value="$PROJECT_DIR$/projects/sdk/core/manager-db-test" />
+            <option value="$PROJECT_DIR$/projects/sdk/core/manifest-parser" />
+            <option value="$PROJECT_DIR$/projects/sdk/core/runtime" />
+            <option value="$PROJECT_DIR$/projects/sdk/core/transform" />
+            <option value="$PROJECT_DIR$/projects/sdk/core/transform-kit" />
+            <option value="$PROJECT_DIR$/projects/sdk/core/utils" />
+            <option value="$PROJECT_DIR$/projects/sdk/dynamic" />
+            <option value="$PROJECT_DIR$/projects/sdk/dynamic/dynamic-apk" />
+            <option value="$PROJECT_DIR$/projects/sdk/dynamic/dynamic-host" />
+            <option value="$PROJECT_DIR$/projects/sdk/dynamic/dynamic-host-multi-loader-ext" />
+            <option value="$PROJECT_DIR$/projects/sdk/dynamic/dynamic-loader" />
+            <option value="$PROJECT_DIR$/projects/sdk/dynamic/dynamic-loader-impl" />
+            <option value="$PROJECT_DIR$/projects/sdk/dynamic/dynamic-manager" />
+            <option value="$PROJECT_DIR$/projects/sdk/dynamic/dynamic-manager-multi-loader-ext" />
+            <option value="$PROJECT_DIR$/projects/source/source-constant" />
+            <option value="$PROJECT_DIR$/projects/source/source-host" />
+            <option value="$PROJECT_DIR$/projects/source/source-host-lib" />
+            <option value="$PROJECT_DIR$/projects/source/source-manager" />
+            <option value="$PROJECT_DIR$/projects/source/source-plugin/source-base" />
+            <option value="$PROJECT_DIR$/projects/source/source-plugin/source-base-lib" />
+            <option value="$PROJECT_DIR$/projects/source/source-plugin/source-loader" />
+            <option value="$PROJECT_DIR$/projects/source/source-plugin/source-runtime" />
+            <option value="$PROJECT_DIR$/projects/source/source-plugin/source-testapp" />
+            <option value="$PROJECT_DIR$/projects/source/source-plugin/third-party/pinnedheaderexpandablelistview" />
+            <option value="$PROJECT_DIR$/projects/source/source-plugin/third-party/slidingmenu" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

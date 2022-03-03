@@ -1,0 +1,55 @@
+import java.nio.file.Files
+
+
+rootProject.name = "shadowStudy"
+
+
+copyLocalPropertiesForIncludeBuilds()
+includeBuild 'projects/sdk/coding'
+includeBuild 'projects/sdk/core'
+includeBuild 'projects/sdk/dynamic'
+
+includeSample()
+
+def includeSample() {
+    include 'source-constant',
+            'source-host',
+            'source-host-lib',
+            'source-manager',
+            'source-loader',
+            'source-runtime',
+            'pinnedheaderexpandablelistview',
+            'slidingmenu',
+            'source-base-lib',
+            'source-base',
+            'source-testapp'
+    project(':source-constant').projectDir = file('projects/source/source-constant')
+    project(':source-host').projectDir = file('projects/source/source-host')
+    project(':source-host-lib').projectDir = file('projects/source/source-host-lib')
+    project(':source-manager').projectDir = file('projects/source/source-manager')
+    project(':source-loader').projectDir = file('projects/source/source-plugin/source-loader')
+    project(':source-runtime').projectDir = file('projects/source/source-plugin/source-runtime')
+    project(':pinnedheaderexpandablelistview').projectDir = file('projects/source/source-plugin/third-party/pinnedheaderexpandablelistview')
+    project(':slidingmenu').projectDir = file('projects/source/source-plugin/third-party/slidingmenu')
+    project(':source-base-lib').projectDir = file('projects/source/source-plugin/source-base-lib')
+    project(':source-base').projectDir = file('projects/source/source-plugin/source-base')
+    project(':source-testapp').projectDir = file('projects/source/source-plugin/source-testapp')
+}
+/**
+ * Android Studio当前不会为IncludeBuild创建包含sdk.dir的local.properties
+ * 使得没有ANDROID_HOME或等效环境变量时仅依赖根目录的local.properties无法编译IncludeBuild。
+ * 为了使此含有IncludeBuild的项目和其他不含有IncludeBuild的普通Android工程一样可以在
+ * 只有根目录的local.properties情况下正常编译，用此任务复制local.properties。
+ */
+def copyLocalPropertiesForIncludeBuilds() {
+    def rootFile = file('local.properties')
+    if (rootFile.exists()) {
+        ['coding', 'core', 'dynamic'].forEach {
+            def includeBuildFile = file("projects/sdk/${it}/local.properties")
+            if (!includeBuildFile.exists()) {
+                Files.copy(rootFile.toPath(), includeBuildFile.toPath())
+            }
+        }
+    }
+}
+
