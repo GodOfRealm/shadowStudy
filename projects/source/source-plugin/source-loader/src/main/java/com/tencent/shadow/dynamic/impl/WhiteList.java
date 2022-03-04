@@ -27,5 +27,7 @@ public interface WhiteList {
     String[] sWhiteList = new String[]
             {
                     "com.demo.source.host.lib",
+                    "com.tencent.shadow.test.lib.constant",
+                    "com.tencent.shadow.test.lib.test_manager",
             };
 }

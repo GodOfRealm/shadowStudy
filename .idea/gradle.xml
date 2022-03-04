@@ -93,6 +93,7 @@
             <option value="$PROJECT_DIR$/projects/source/source-plugin/source-loader" />
             <option value="$PROJECT_DIR$/projects/source/source-plugin/source-runtime" />
             <option value="$PROJECT_DIR$/projects/source/source-plugin/source-testapp" />
+            <option value="$PROJECT_DIR$/projects/source/source-plugin/test-plugin-androidx-cases" />
             <option value="$PROJECT_DIR$/projects/source/source-plugin/third-party/pinnedheaderexpandablelistview" />
             <option value="$PROJECT_DIR$/projects/source/source-plugin/third-party/slidingmenu" />
           </set>

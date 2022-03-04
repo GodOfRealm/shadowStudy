@@ -22,7 +22,9 @@ def includeSample() {
             'slidingmenu',
             'source-base-lib',
             'source-base',
-            'source-testapp'
+            'source-testapp',
+            'test-plugin-androidx-cases'
+
     project(':source-constant').projectDir = file('projects/source/source-constant')
     project(':source-host').projectDir = file('projects/source/source-host')
     project(':source-host-lib').projectDir = file('projects/source/source-host-lib')
@@ -34,6 +36,8 @@ def includeSample() {
     project(':source-base-lib').projectDir = file('projects/source/source-plugin/source-base-lib')
     project(':source-base').projectDir = file('projects/source/source-plugin/source-base')
     project(':source-testapp').projectDir = file('projects/source/source-plugin/source-testapp')
+    project(':test-plugin-androidx-cases').projectDir = file('projects/source/source-plugin/test-plugin-androidx-cases')
+
 }
 /**
  * Android Studio当前不会为IncludeBuild创建包含sdk.dir的local.properties

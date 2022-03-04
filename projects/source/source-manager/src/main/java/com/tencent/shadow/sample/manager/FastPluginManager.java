@@ -18,7 +18,9 @@
 
 package com.tencent.shadow.sample.manager;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.RemoteException;
 import android.util.Pair;
 
@@ -137,6 +139,17 @@ public abstract class FastPluginManager extends PluginManagerThatUseDynamicLoade
         if (!map.containsKey(partKey)) {
             mPluginLoader.loadPlugin(partKey);
         }
+    }
+    public void startPluginActivity(Context context, InstalledPlugin installedPlugin, String partKey, Intent pluginIntent) throws RemoteException, TimeoutException, FailedException {
+        Intent intent = convertActivityIntent(installedPlugin, partKey, pluginIntent);
+        if (!(context instanceof Activity)) {
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        }
+        context.startActivity(intent);
+    }
+    public Intent convertActivityIntent(InstalledPlugin installedPlugin, String partKey, Intent pluginIntent) throws RemoteException, TimeoutException, FailedException {
+        loadPlugin(installedPlugin.UUID, partKey);
+        return mPluginLoader.convertActivityIntent(pluginIntent);
     }
 
 

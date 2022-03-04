@@ -115,23 +115,20 @@ shadow {
                         partKey = 'source-plugin-app'
                         buildTask = ':source-testapp:assemblePluginDebug'
                         apkPath = 'projects/source/source-plugin/source-testapp/build/outputs/apk/plugin/debug/source-testapp-plugin-debug.apk'
-                        hostWhiteList = ["com.demo.source.host.lib"]
                         dependsOn = ['source-base']
                     }
-//                    pluginApk2 {
-//                        businessName = 'source-plugin-app2'
-//                        partKey = 'source-plugin-app2'
-//                        buildTask = ':source-testapp:assemblePluginDebug'
-//                        apkPath = 'projects/source/source-plugin/source-testapp/build/outputs/apk/plugin/debug/source-testapp-plugin-debug2.apk'
-//                        hostWhiteList = ["com.demo.source.host.lib"]
-//                        dependsOn = ['source-base']
-//                    }
+                    pluginApk5 {
+                        businessName = 'androidx-cases'
+                        partKey = 'test-plugin-androidx-cases'
+                        buildTask = ':test-plugin-androidx-cases:assemblePluginDebug'
+                        apkPath = 'projects/source/source-plugin/test-plugin-androidx-cases/build/outputs/apk/plugin/debug/test-plugin-androidx-cases-plugin-debug.apk'
+                        hostWhiteList = ["com.demo.source.host.lib"]
+                    }
                     sampleBase {
                         businessName = 'source-plugin-app'
                         partKey = 'source-base'
                         buildTask = ':source-base:assemblePluginDebug'
                         apkPath = 'projects/source/source-plugin/source-base/build/outputs/apk/plugin/debug/source-base-plugin-debug.apk'
-                        hostWhiteList = ["com.demo.source.host.lib"]
                     }
                 }
             }
