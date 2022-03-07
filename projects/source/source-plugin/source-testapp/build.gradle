@@ -124,6 +124,13 @@ shadow {
                         apkPath = 'projects/source/source-plugin/test-plugin-androidx-cases/build/outputs/apk/plugin/debug/test-plugin-androidx-cases-plugin-debug.apk'
                         hostWhiteList = ["com.demo.source.host.lib"]
                     }
+                    pluginApk6 {
+                        businessName = 'hello-app'
+                        partKey = 'test-plugin-hello-app'
+                        buildTask = ':test-plugin-hello-app:assemblePluginDebug'
+                        apkPath = 'projects/source/source-plugin/test-plugin-hello-app/build/outputs/apk/plugin/debug/test-plugin-hello-app-plugin-debug.apk'
+                        hostWhiteList = ["com.demo.source.host.lib"]
+                    }
                     sampleBase {
                         businessName = 'source-plugin-app'
                         partKey = 'source-base'

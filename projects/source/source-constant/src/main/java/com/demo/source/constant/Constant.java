@@ -25,6 +25,8 @@ final public class Constant {
     public static final String KEY_PLUGIN_PART_KEY = "KEY_PLUGIN_PART_KEY";
     public static final String PART_KEY_PLUGIN_MAIN_APP = "source-plugin-app";
     public static final String PART_KEY_PLUGIN_ANOTHER_APP = "test-plugin-androidx-cases";
+    public static final String PART_KEY_PLUGIN_HELLO_APP = "test-plugin-hello-app";
+
     public static final String PART_KEY_PLUGIN_BASE = "source-base";
 
     public static final int FROM_ID_NOOP = 1000;

@@ -56,7 +56,8 @@ public class MainActivity extends Activity {
         ArrayAdapter<String> partKeysAdapter = new ArrayAdapter<>(this, R.layout.part_key_adapter);
         partKeysAdapter.addAll(
                 Constant.PART_KEY_PLUGIN_MAIN_APP,
-                Constant.PART_KEY_PLUGIN_ANOTHER_APP
+                Constant.PART_KEY_PLUGIN_ANOTHER_APP,
+                Constant.PART_KEY_PLUGIN_HELLO_APP
         );
         partKeySpinner.setAdapter(partKeysAdapter);
 
@@ -77,7 +78,10 @@ public class MainActivity extends Activity {
                         intent.putExtra(Constant.KEY_ACTIVITY_CLASSNAME, "com.demo.source.plugin.app.lib.gallery.splash.SplashActivity");
                         break;
                     case Constant.PART_KEY_PLUGIN_ANOTHER_APP:
-                        intent.putExtra(Constant.KEY_ACTIVITY_CLASSNAME, "com.tencent.shadow.test.plugin.androidx_cases.lib.AppComponentFactoryTestActivity");
+                        intent.putExtra(Constant.KEY_ACTIVITY_CLASSNAME, "com.tencent.shadow.test.plugin.androidx_cases.lib.AppCompatTestActivity");
+                        break;
+                    case Constant.PART_KEY_PLUGIN_HELLO_APP:
+                        intent.putExtra(Constant.KEY_ACTIVITY_CLASSNAME, "com.demo.test.plugin.hello_app.MainActivity");
                         break;
 
                 }
