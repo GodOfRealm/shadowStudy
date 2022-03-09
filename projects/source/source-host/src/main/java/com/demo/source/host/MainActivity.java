@@ -57,6 +57,7 @@ public class MainActivity extends Activity {
         partKeysAdapter.addAll(
                 Constant.PART_KEY_PLUGIN_MAIN_APP,
                 Constant.PART_KEY_PLUGIN_ANOTHER_APP,
+                Constant.PART_KEY_PLUGIN_MAME,
                 Constant.PART_KEY_PLUGIN_HELLO_APP
         );
         partKeySpinner.setAdapter(partKeysAdapter);
@@ -82,6 +83,9 @@ public class MainActivity extends Activity {
                         break;
                     case Constant.PART_KEY_PLUGIN_HELLO_APP:
                         intent.putExtra(Constant.KEY_ACTIVITY_CLASSNAME, "com.demo.test.plugin.hello_app.MainActivity");
+                        break;
+                    case Constant.PART_KEY_PLUGIN_MAME:
+                        intent.putExtra(Constant.KEY_ACTIVITY_CLASSNAME, "com.mobile.emulatormodule.MamePlayingActivity");
                         break;
 
                 }

@@ -45,6 +45,9 @@ public class HostApplication extends Application {
     public void onCreate() {
         super.onCreate();
         sApp = this;
+        //宿主程序必须加载过armeabi的so,插件才可以以armeabi ABI兼容模式运行,否则在64位手机上,系统会加载插件的arm64 ABI的so。
+        //System.loadLibrary("encry");//这是一个随意拿来的armeabi的so。
+        System.loadLibrary("native-lib");
 
         detectNonSdkApiUsageOnAndroidP();
         setWebViewDataDirectorySuffix();

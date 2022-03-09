@@ -12,6 +12,9 @@ android {
         versionCode project.VERSION_CODE
         versionName project.VERSION_NAME
         testInstrumentationRunner "com.tencent.shadow.test.CustomAndroidJUnitRunner"
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
     }
     buildTypes {
         debug {

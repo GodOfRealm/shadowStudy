@@ -66,9 +66,9 @@ public class SamplePluginManager extends FastPluginManager {
 //        if (PART_KEY_PLUGIN_MAIN_APP.equals(partKey)) {
 //            return "com.demo.source.host.PluginProcessPPS";
 //        } else if (PART_KEY_PLUGIN_BASE.equals(partKey)) {
-//            return "com.demo.source.host.PluginProcessPPS";
+            return "com.demo.source.host.PluginProcessPPS";
 //        } else if (PART_KEY_PLUGIN_ANOTHER_APP.equals(partKey)) {
-        return "com.demo.source.host.Plugin2ProcessPPS";//在这里支持多个插件
+//            return "com.demo.source.host.Plugin2ProcessPPS";//在这里支持多个插件
 //        } else {
 //            //如果有默认PPS，可用return代替throw
 //            throw new IllegalArgumentException("unexpected plugin load request: " + partKey);

@@ -26,6 +26,8 @@ final public class Constant {
     public static final String PART_KEY_PLUGIN_MAIN_APP = "source-plugin-app";
     public static final String PART_KEY_PLUGIN_ANOTHER_APP = "test-plugin-androidx-cases";
     public static final String PART_KEY_PLUGIN_HELLO_APP = "test-plugin-hello-app";
+    public static final String PART_KEY_PLUGIN_MAME = "test-plugin-mame-app";
+
 
     public static final String PART_KEY_PLUGIN_BASE = "source-base";
 

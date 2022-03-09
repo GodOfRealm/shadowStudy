@@ -88,6 +88,7 @@
             <option value="$PROJECT_DIR$/projects/source/source-host" />
             <option value="$PROJECT_DIR$/projects/source/source-host-lib" />
             <option value="$PROJECT_DIR$/projects/source/source-manager" />
+            <option value="$PROJECT_DIR$/projects/source/source-plugin/emulatormodule" />
             <option value="$PROJECT_DIR$/projects/source/source-plugin/source-base" />
             <option value="$PROJECT_DIR$/projects/source/source-plugin/source-base-lib" />
             <option value="$PROJECT_DIR$/projects/source/source-plugin/source-loader" />

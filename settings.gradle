@@ -24,6 +24,7 @@ def includeSample() {
             'source-base',
             'source-testapp',
             'test-plugin-androidx-cases',
+            'emulatormodule',
             'test-plugin-hello-app'
 
     project(':source-constant').projectDir = file('projects/source/source-constant')
@@ -39,6 +40,8 @@ def includeSample() {
     project(':source-testapp').projectDir = file('projects/source/source-plugin/source-testapp')
     project(':test-plugin-androidx-cases').projectDir = file('projects/source/source-plugin/test-plugin-androidx-cases')
     project(':test-plugin-hello-app').projectDir = file('projects/source/source-plugin/test-plugin-hello-app')
+    project(':emulatormodule').projectDir = file('projects/source/source-plugin/emulatormodule')
+
 
 }
 /**

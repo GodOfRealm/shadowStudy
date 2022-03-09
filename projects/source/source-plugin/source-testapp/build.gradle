@@ -131,6 +131,13 @@ shadow {
                         apkPath = 'projects/source/source-plugin/test-plugin-hello-app/build/outputs/apk/plugin/debug/test-plugin-hello-app-plugin-debug.apk'
                         hostWhiteList = ["com.demo.source.host.lib"]
                     }
+                    pluginApk7 {
+                        businessName = 'mame-app'
+                        partKey = 'test-plugin-mame-app'
+                        buildTask = ':emulatormodule:assemblePluginDebug'
+                        apkPath = 'projects/source/source-plugin/emulatormodule/build/outputs/apk/plugin/debug/emulatormodule-plugin-debug.apk'
+                        hostWhiteList = ["com.demo.source.host.lib"]
+                    }
                     sampleBase {
                         businessName = 'source-plugin-app'
                         partKey = 'source-base'
