@@ -99,6 +99,12 @@
         <service
             android:name="com.demo.source.host.Plugin2ProcessPPS"
             android:process=":plugin2" />
+        <service
+            android:name="com.demo.source.host.HelloProcessPPS"
+            android:process=":hello" />
+        <service
+            android:name="com.demo.source.host.HiProcessPPS"
+            android:process=":Hi" />
 
         <activity
             android:name="com.demo.source.host.PluginLoadActivity"
