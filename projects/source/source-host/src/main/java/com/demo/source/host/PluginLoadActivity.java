@@ -27,6 +27,8 @@ import android.view.ViewGroup;
 import com.demo.source.constant.Constant;
 import com.tencent.shadow.dynamic.host.EnterCallback;
 
+import java.io.File;
+
 
 public class PluginLoadActivity extends Activity {
 
@@ -52,9 +54,11 @@ public class PluginLoadActivity extends Activity {
             @Override
             public void run() {
                 HostApplication.getApp().loadPluginManager(PluginHelper.getInstance().pluginManagerFile);
-
+                String zipFileName = getIntent().getStringExtra(Constant.KEY_PLUGIN_ZIP_PATH);
+                String zipabsolutePath = new File(PluginLoadActivity.this.getFilesDir(), zipFileName).getAbsolutePath();
                 Bundle bundle = new Bundle();
-                bundle.putString(Constant.KEY_PLUGIN_ZIP_PATH, PluginHelper.getInstance().pluginZipFile.getAbsolutePath());
+
+                bundle.putString(Constant.KEY_PLUGIN_ZIP_PATH, zipabsolutePath);
                 bundle.putString(Constant.KEY_PLUGIN_PART_KEY, getIntent().getStringExtra(Constant.KEY_PLUGIN_PART_KEY));
                 bundle.putString(Constant.KEY_ACTIVITY_CLASSNAME, getIntent().getStringExtra(Constant.KEY_ACTIVITY_CLASSNAME));
 

@@ -30,6 +30,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -66,12 +67,18 @@ public class MainActivity extends Activity {
 
         Button startPluginButton = new Button(this);
         startPluginButton.setText(R.string.start_plugin);
+
+        EditText editText = new EditText(this);
+        rootView.addView(editText);
+
         startPluginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String partKey = (String) partKeySpinner.getSelectedItem();
+                String zipPath = editText.getText().toString();
                 Intent intent = new Intent(MainActivity.this, PluginLoadActivity.class);
                 intent.putExtra(Constant.KEY_PLUGIN_PART_KEY, partKey);
+                intent.putExtra(Constant.KEY_PLUGIN_ZIP_PATH, zipPath);
 
                 switch (partKey) {
                     //为了演示多进程多插件，其实两个插件内容完全一样，除了所在进程
