@@ -70,6 +70,7 @@ public class MainActivity extends Activity {
 
         EditText editText = new EditText(this);
         rootView.addView(editText);
+        editText.setText("plugin-debug.zip");
 
         startPluginButton.setOnClickListener(new View.OnClickListener() {
             @Override
