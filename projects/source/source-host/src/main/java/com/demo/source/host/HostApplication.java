@@ -25,6 +25,7 @@ import android.os.Build;
 import android.os.StrictMode;
 import android.webkit.WebView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.demo.source.host.lib.HostUiLayerProvider;
 import com.demo.source.host.manager.Shadow;
 import com.tencent.shadow.core.common.LoggerFactory;
@@ -48,6 +49,12 @@ public class HostApplication extends Application {
         //宿主程序必须加载过armeabi的so,插件才可以以armeabi ABI兼容模式运行,否则在64位手机上,系统会加载插件的arm64 ABI的so。
         //System.loadLibrary("encry");//这是一个随意拿来的armeabi的so。
         System.loadLibrary("native-lib");
+
+        //arouter start
+        ARouter.init(this);
+        ARouter.openLog();
+        ARouter.openDebug();
+
 
         detectNonSdkApiUsageOnAndroidP();
         setWebViewDataDirectorySuffix();

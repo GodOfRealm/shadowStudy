@@ -1,8 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'com.alibaba.arouter'
 }
-
 android {
     compileSdkVersion project.COMPILE_SDK_VERSION
     defaultConfig {
@@ -44,6 +45,18 @@ android {
         checkReleaseBuilds false
         abortOnError false
     }
+    //arouter start
+    kapt {
+        arguments {
+            arg("AROUTER_MODULE_NAME", project.getName())
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    //arouter end
+
 }
 
 def createCopyTask(projectName, buildType, name, apkName, inputFile, taskName) {
@@ -117,4 +130,9 @@ dependencies {
     implementation 'com.tencent.shadow.dynamic:dynamic-host'
     implementation project(':source-constant')
     implementation project(':source-host-lib')
+
+    //arouter start
+    implementation 'com.alibaba:arouter-api:1.5.1'
+    kapt 'com.alibaba:arouter-compiler:1.5.1'
+    //arouter end
 }

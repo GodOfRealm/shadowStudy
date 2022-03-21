@@ -3,6 +3,8 @@ apply plugin: 'com.tencent.shadow.plugin'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.alibaba.arouter'
+
 android {
     compileSdkVersion project.COMPILE_SDK_VERSION
 
@@ -35,6 +37,17 @@ android {
     lintOptions {
         abortOnError false
     }
+
+    kapt {
+        arguments {
+            arg("AROUTER_MODULE_NAME", project.getName())
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 
@@ -45,11 +58,10 @@ dependencies {
 
     implementation "androidx.activity:activity:$activity_version"
     implementation "androidx.appcompat:appcompat:$appcompat_version"
-
-
-
     pluginCompileOnly 'com.tencent.shadow.core:runtime'
 
+    implementation 'com.alibaba:arouter-api:1.5.1'
+    kapt 'com.alibaba:arouter-compiler:1.5.1'
 }
 buildscript {
     repositories {

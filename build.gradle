@@ -17,6 +17,10 @@ buildscript {
         classpath "com.android.tools.build:gradle:$build_gradle_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.tencent.shadow.coding:aar-to-jar-plugin'
+
+        //ARouter
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'com.alibaba:arouter-register:1.0.2'
     }
 }
 apply from: 'buildScripts/gradle/common.gradle'
