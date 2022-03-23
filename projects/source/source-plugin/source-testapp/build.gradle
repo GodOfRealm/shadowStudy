@@ -188,5 +188,6 @@ shadow {
         version = 4
         compactVersion = [1, 2, 3]
         uuidNickName = "1.1.5"
+        uuid = '1234567890'
     }
 }

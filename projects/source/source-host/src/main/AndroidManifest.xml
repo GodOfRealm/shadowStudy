@@ -70,9 +70,9 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
+        android:name="com.demo.source.host.HostApplication"
         android:allowBackup="true"
         android:label="Shadow Dyanamic测试宿主App"
-        android:name="com.demo.source.host.HostApplication"
         android:theme="@android:style/Theme.DeviceDefault"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
@@ -88,8 +88,8 @@
             android:process=":plugin" />
 
         <provider
-            android:authorities="${applicationId}.contentprovider.authority.dynamic"
             android:name="com.tencent.shadow.core.runtime.container.PluginContainerContentProvider"
+            android:authorities="${applicationId}.contentprovider.authority.dynamic"
             android:grantUriPermissions="true"
             android:process=":plugin" />
 
@@ -105,6 +105,9 @@
         <service
             android:name="com.demo.source.host.HiProcessPPS"
             android:process=":Hi" />
+        <service
+            android:name="com.demo.source.host.UninstallPluginProcessPPS"
+            android:process=":uninstallPlugin" />
 
         <activity
             android:name="com.demo.source.host.PluginLoadActivity"
@@ -117,30 +120,30 @@
           -->
         <activity
             android:name="com.demo.source.runtime.PluginDefaultProxyActivity"
-            android:launchMode="standard"
-            android:screenOrientation="portrait"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
             android:hardwareAccelerated="true"
-            android:theme="@style/troop_Transparent"
-            android:multiprocess="true" />
+            android:launchMode="standard"
+            android:multiprocess="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/troop_Transparent" />
 
         <activity
             android:name="com.demo.source.runtime.PluginSingleInstance1ProxyActivity"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
             android:hardwareAccelerated="true"
-            android:theme="@style/troop_Transparent"
-            android:multiprocess="true" />
+            android:launchMode="singleInstance"
+            android:multiprocess="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/troop_Transparent" />
 
         <activity
             android:name="com.demo.source.runtime.PluginSingleTask1ProxyActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
             android:hardwareAccelerated="true"
-            android:theme="@style/troop_Transparent"
+            android:launchMode="singleTask"
             android:multiprocess="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/troop_Transparent"
 
             />
         <!--dynamic activity注册 end -->

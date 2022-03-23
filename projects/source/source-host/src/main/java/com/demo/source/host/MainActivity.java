@@ -37,6 +37,7 @@ import android.widget.TextView;
 
 import com.demo.source.constant.Constant;
 import com.demo.source.host.plugin_view.HostAddPluginViewActivity;
+import com.tencent.shadow.dynamic.host.EnterCallback;
 
 
 public class MainActivity extends Activity {
@@ -63,14 +64,48 @@ public class MainActivity extends Activity {
         );
         partKeySpinner.setAdapter(partKeysAdapter);
 
-        rootView.addView(partKeySpinner);
+        EditText editText = new EditText(this);
+        editText.setText("plugin-debug.zip");
+
+
+        EditText uninstallPluginEt = new EditText(this);
+        uninstallPluginEt.setHint("要卸载插件的uuid");
 
         Button startPluginButton = new Button(this);
         startPluginButton.setText(R.string.start_plugin);
 
-        EditText editText = new EditText(this);
+
+        Button uninstallPluginButton = new Button(this);
+        uninstallPluginButton.setText("卸载插件");
+
+        rootView.addView(uninstallPluginEt);
         rootView.addView(editText);
-        editText.setText("plugin-debug.zip");
+        rootView.addView(partKeySpinner);
+        rootView.addView(uninstallPluginButton);
+        rootView.addView(startPluginButton);
+
+        uninstallPluginButton.setOnClickListener(view -> {
+            Bundle bundle = new Bundle();
+            bundle.putString(Constant.KEY_EXTRAS, uninstallPluginEt.getText().toString());
+            HostApplication.getApp().loadPluginManager(PluginHelper.getInstance().pluginManagerFile);
+            HostApplication.getApp().getPluginManager().enter(this, Constant.FROM_ID_UNINSTALL_PLUGIN, bundle, new EnterCallback() {
+                @Override
+                public void onShowLoadingView(View view) {
+
+                }
+
+                @Override
+                public void onCloseLoadingView() {
+
+                }
+
+                @Override
+                public void onEnterComplete() {
+
+                }
+            });
+        });
+
 
         startPluginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,7 +136,6 @@ public class MainActivity extends Activity {
 
             }
         });
-        rootView.addView(startPluginButton);
 
         Button startHostAddPluginViewActivityButton = new Button(this);
         startHostAddPluginViewActivityButton.setText("宿主添加插件View");
