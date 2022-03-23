@@ -98,96 +98,96 @@ tasks.whenTaskAdded { task ->
     }
 }
 
-
-shadow {
-    transform {
-//        useHostContext = ['abc']
-    }
-
-    packagePlugin {
-        pluginTypes {
-            debug {
-                loaderApkConfig = new Tuple2('source-loader-debug.apk', ':source-loader:assembleDebug')
-                runtimeApkConfig = new Tuple2('source-runtime-debug.apk', ':source-runtime:assembleDebug')
-                pluginApks {
-                    pluginApk1 {
-                        businessName = 'source-plugin-app'
-                        partKey = 'source-plugin-app'
-                        buildTask = ':source-testapp:assemblePluginDebug'
-                        apkPath = 'projects/source/source-plugin/source-testapp/build/outputs/apk/plugin/debug/source-testapp-plugin-debug.apk'
-                        dependsOn = ['source-base']
-                    }
-                    pluginApk5 {
-                        businessName = 'androidx-cases'
-                        partKey = 'test-plugin-androidx-cases'
-                        buildTask = ':test-plugin-androidx-cases:assemblePluginDebug'
-                        apkPath = 'projects/source/source-plugin/test-plugin-androidx-cases/build/outputs/apk/plugin/debug/test-plugin-androidx-cases-plugin-debug.apk'
-                        hostWhiteList = ["com.demo.source.host.lib"]
-                    }
-                    pluginApk6 {
-                        businessName = 'hello-app'
-                        partKey = 'test-plugin-hello-app'
-                        buildTask = ':test-plugin-hello-app:assemblePluginDebug'
-                        apkPath = 'projects/source/source-plugin/test-plugin-hello-app/build/outputs/apk/plugin/debug/test-plugin-hello-app-plugin-debug.apk'
-                        hostWhiteList = ["com.demo.source.host.lib"]
-                    }
-                    pluginApk7 {
-                        businessName = 'mame-app'
-                        partKey = 'test-plugin-mame-app'
-                        buildTask = ':emulatormodule:assemblePluginDebug'
-                        apkPath = 'projects/source/source-plugin/emulatormodule/build/outputs/apk/plugin/debug/emulatormodule-plugin-debug.apk'
-                        hostWhiteList = ["com.demo.source.host.lib"]
-                    }
-                    sampleBase {
-                        businessName = 'source-plugin-app'
-                        partKey = 'source-base'
-                        buildTask = ':source-base:assemblePluginDebug'
-                        apkPath = 'projects/source/source-plugin/source-base/build/outputs/apk/plugin/debug/source-base-plugin-debug.apk'
-                    }
-                }
-            }
-
-            release {
-                loaderApkConfig = new Tuple2('source-loader-release.apk', ':source-loader:assembleRelease')
-                runtimeApkConfig = new Tuple2('source-runtime-release.apk', ':source-runtime:assembleRelease')
-                pluginApks {
-                    pluginApk1 {
-                        businessName = 'source-plugin-app'
-                        partKey = 'source-plugin-app'
-                        buildTask = ':source-testapp:assemblePluginRelease'
-                        apkPath = 'projects/source/source-plugin/source-testapp/build/outputs/apk/plugin/release/source-testapp-plugin-release.apk'
-                        hostWhiteList = ["com.tencent.shadow.sample.host.lib"]
-                        dependsOn = ['source-base']
-                    }
-                    pluginApk2 {
-                        businessName = 'source-plugin-app2'
-                        partKey = 'source-plugin-app2'
-                        buildTask = ':source-testapp:assemblePluginRelease'
-                        apkPath = 'projects/source/source-plugin/source-testapp/build/outputs/apk/plugin/release/source-testapp-plugin-release2.apk'
-                        hostWhiteList = ["com.tencent.shadow.sample.host.lib"]
-                        dependsOn = ['source-base']
-                    }
-                    sampleBase {
-                        businessName = 'source-plugin-app'
-                        partKey = 'source-base'
-                        buildTask = ':source-base:assemblePluginRelease'
-                        apkPath = 'projects/source/source-plugin/source-base/build/outputs/apk/plugin/release/source-base-plugin-release.apk'
-                        hostWhiteList = ["com.tencent.shadow.sample.host.lib"]
-                    }
-                }
-            }
-        }
-
-        loaderApkProjectPath = 'projects/source/source-plugin/source-loader'
-        runtimeApkProjectPath = 'projects/source/source-plugin/source-runtime'
-
-        archiveSuffix = System.getenv("PluginSuffix") ?: ""
-        archivePrefix = 'plugin'
-        destinationDir = "${getRootProject().getBuildDir()}"
-
-        version = 4
-        compactVersion = [1, 2, 3]
-        uuidNickName = "1.1.5"
-        uuid = '1234567890'
-    }
-}
+//
+//shadow {
+//    transform {
+////        useHostContext = ['abc']
+//    }
+//
+//    packagePlugin {
+//        pluginTypes {
+//            debug {
+//                loaderApkConfig = new Tuple2('source-loader-debug.apk', ':source-loader:assembleDebug')
+//                runtimeApkConfig = new Tuple2('source-runtime-debug.apk', ':source-runtime:assembleDebug')
+//                pluginApks {
+//                    pluginApk1 {
+//                        businessName = 'source-plugin-app'
+//                        partKey = 'source-plugin-app'
+//                        buildTask = ':source-testapp:assemblePluginDebug'
+//                        apkPath = 'projects/source/source-plugin/source-testapp/build/outputs/apk/plugin/debug/source-testapp-plugin-debug.apk'
+//                        dependsOn = ['source-base']
+//                    }
+//                    pluginApk5 {
+//                        businessName = 'androidx-cases'
+//                        partKey = 'test-plugin-androidx-cases'
+//                        buildTask = ':test-plugin-androidx-cases:assemblePluginDebug'
+//                        apkPath = 'projects/source/source-plugin/test-plugin-androidx-cases/build/outputs/apk/plugin/debug/test-plugin-androidx-cases-plugin-debug.apk'
+//                        hostWhiteList = ["com.demo.source.host.lib"]
+//                    }
+//                    pluginApk6 {
+//                        businessName = 'hello-app'
+//                        partKey = 'test-plugin-hello-app'
+//                        buildTask = ':test-plugin-hello-app:assemblePluginDebug'
+//                        apkPath = 'projects/source/source-plugin/test-plugin-hello-app/build/outputs/apk/plugin/debug/test-plugin-hello-app-plugin-debug.apk'
+//                        hostWhiteList = ["com.demo.source.host.lib"]
+//                    }
+//                    pluginApk7 {
+//                        businessName = 'mame-app'
+//                        partKey = 'test-plugin-mame-app'
+//                        buildTask = ':emulatormodule:assemblePluginDebug'
+//                        apkPath = 'projects/source/source-plugin/emulatormodule/build/outputs/apk/plugin/debug/emulatormodule-plugin-debug.apk'
+//                        hostWhiteList = ["com.demo.source.host.lib"]
+//                    }
+//                    sampleBase {
+//                        businessName = 'source-plugin-app'
+//                        partKey = 'source-base'
+//                        buildTask = ':source-base:assemblePluginDebug'
+//                        apkPath = 'projects/source/source-plugin/source-base/build/outputs/apk/plugin/debug/source-base-plugin-debug.apk'
+//                    }
+//                }
+//            }
+//
+//            release {
+//                loaderApkConfig = new Tuple2('source-loader-release.apk', ':source-loader:assembleRelease')
+//                runtimeApkConfig = new Tuple2('source-runtime-release.apk', ':source-runtime:assembleRelease')
+//                pluginApks {
+//                    pluginApk1 {
+//                        businessName = 'source-plugin-app'
+//                        partKey = 'source-plugin-app'
+//                        buildTask = ':source-testapp:assemblePluginRelease'
+//                        apkPath = 'projects/source/source-plugin/source-testapp/build/outputs/apk/plugin/release/source-testapp-plugin-release.apk'
+//                        hostWhiteList = ["com.tencent.shadow.sample.host.lib"]
+//                        dependsOn = ['source-base']
+//                    }
+//                    pluginApk2 {
+//                        businessName = 'source-plugin-app2'
+//                        partKey = 'source-plugin-app2'
+//                        buildTask = ':source-testapp:assemblePluginRelease'
+//                        apkPath = 'projects/source/source-plugin/source-testapp/build/outputs/apk/plugin/release/source-testapp-plugin-release2.apk'
+//                        hostWhiteList = ["com.tencent.shadow.sample.host.lib"]
+//                        dependsOn = ['source-base']
+//                    }
+//                    sampleBase {
+//                        businessName = 'source-plugin-app'
+//                        partKey = 'source-base'
+//                        buildTask = ':source-base:assemblePluginRelease'
+//                        apkPath = 'projects/source/source-plugin/source-base/build/outputs/apk/plugin/release/source-base-plugin-release.apk'
+//                        hostWhiteList = ["com.tencent.shadow.sample.host.lib"]
+//                    }
+//                }
+//            }
+//        }
+//
+//        loaderApkProjectPath = 'projects/source/source-plugin/source-loader'
+//        runtimeApkProjectPath = 'projects/source/source-plugin/source-runtime'
+//
+//        archiveSuffix = System.getenv("PluginSuffix") ?: ""
+//        archivePrefix = 'plugin'
+//        destinationDir = "${getRootProject().getBuildDir()}"
+//
+//        version = 4
+//        compactVersion = [1, 2, 3]
+//        uuidNickName = "1.1.5"
+//        uuid = '1234567890'
+//    }
+//}

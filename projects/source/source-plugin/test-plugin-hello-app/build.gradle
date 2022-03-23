@@ -80,3 +80,47 @@ buildscript {
         classpath 'org.javassist:javassist:3.28.0-GA'
     }
 }
+
+
+shadow {
+    transform {
+//        useHostContext = ['abc']
+    }
+
+    packagePlugin {
+        pluginTypes {
+            debug {
+                loaderApkConfig = new Tuple2('source-loader-debug.apk', ':source-loader:assembleDebug')
+                runtimeApkConfig = new Tuple2('source-runtime-debug.apk', ':source-runtime:assembleDebug')
+                pluginApks {
+
+                    pluginApk1 {
+                        businessName = 'hello-app'
+                        partKey = 'test-plugin-hello-app'
+                        buildTask = ':test-plugin-hello-app:assemblePluginDebug'
+                        apkPath = 'projects/source/source-plugin/test-plugin-hello-app/build/outputs/apk/plugin/debug/test-plugin-hello-app-plugin-debug.apk'
+                        hostWhiteList = ["com.demo.source.host.lib"]
+                    }
+
+                }
+            }
+
+            release {
+                loaderApkConfig = new Tuple2('source-loader-release.apk', ':source-loader:assembleRelease')
+                runtimeApkConfig = new Tuple2('source-runtime-release.apk', ':source-runtime:assembleRelease')
+            }
+        }
+
+        loaderApkProjectPath = 'projects/source/source-plugin/source-loader'
+        runtimeApkProjectPath = 'projects/source/source-plugin/source-runtime'
+
+        archiveSuffix = System.getenv("PluginSuffix") ?: ""
+        archivePrefix = 'plugin'
+        destinationDir = "${getRootProject().getBuildDir()}"
+
+        version = 4
+        compactVersion = [1, 2, 3]
+        uuidNickName = "1.1.5"
+        uuid = '1234567890'
+    }
+}
