@@ -2,9 +2,11 @@ package com.tencent.shadow.sample.manager;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.demo.source.constant.Constant;
+import com.tencent.shadow.core.manager.installplugin.InstalledPlugin;
 import com.tencent.shadow.dynamic.host.EnterCallback;
 import com.tencent.shadow.dynamic.host.PluginManagerImpl;
 
@@ -16,33 +18,37 @@ import com.tencent.shadow.dynamic.host.PluginManagerImpl;
 public class MyPluginManager implements PluginManagerImpl {
     final private HelloPluginManager helloPluginManager;
     final private HiPluginManager hiPluginManager;
-    final private UninstallPluginDynamicPluginManager uninstallPluginManager;
 
     public MyPluginManager(Context context) {
         this.helloPluginManager = new HelloPluginManager(context);
         this.hiPluginManager = new HiPluginManager(context);
-        this.uninstallPluginManager = new UninstallPluginDynamicPluginManager(context);
     }
 
     @Override
     public void enter(Context context, long formId, Bundle bundle, EnterCallback callback) {
+        String partKey = bundle.getString(Constant.KEY_PLUGIN_PART_KEY, "");
+        final FastPluginManager pm;
+
+        if (bundle != null) {
+            if (partKey.equals(Constant.PART_KEY_PLUGIN_HELLO_APP)) {
+                pm = helloPluginManager;
+
+            } else if (partKey.equals(Constant.PART_KEY_PLUGIN_MAME)) {
+                pm = hiPluginManager;
+
+            } else {
+                pm = helloPluginManager;
+            }
+        } else {
+            pm = helloPluginManager;
+        }
 
         if (formId == Constant.FROM_ID_START_ACTIVITY) {
             //activity 跳转
-            String partKey = bundle.getString(Constant.KEY_PLUGIN_PART_KEY, "");
-
-            if (partKey.equals(Constant.PART_KEY_PLUGIN_HELLO_APP)) {
-                helloPluginManager.enter(context, formId, bundle, callback);
-            } else if (partKey.equals(Constant.PART_KEY_PLUGIN_MAME)) {
-                hiPluginManager.enter(context, formId, bundle, callback);
-
-            } else {
-                throw new IllegalArgumentException("unexpected plugin load request: " + partKey);
-
-            }
+            pm.enter(context, formId, bundle, callback);
         } else if (formId == Constant.FROM_ID_UNINSTALL_PLUGIN) {
             // 插件卸载
-            uninstallPluginManager.enter(context, formId, bundle, callback);
+           pm.deletePlugin(bundle);
         } else {
             throw new IllegalArgumentException("不认识的fromId==" + formId);
         }

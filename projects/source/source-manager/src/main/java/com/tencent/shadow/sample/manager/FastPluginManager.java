@@ -21,9 +21,13 @@ package com.tencent.shadow.sample.manager;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.os.Process;
 import android.os.RemoteException;
+import android.util.Log;
 import android.util.Pair;
 
+import com.demo.source.constant.Constant;
 import com.tencent.shadow.core.common.Logger;
 import com.tencent.shadow.core.common.LoggerFactory;
 import com.tencent.shadow.core.manager.installplugin.InstalledPlugin;
@@ -112,9 +116,33 @@ public abstract class FastPluginManager extends PluginManagerThatUseDynamicLoade
         }
         onInstallCompleted(pluginConfig, soDirMap);
 
-        return getInstalledPlugins(1).get(0);
+        return getInstalledPlugin(pluginConfig.UUID);
     }
 
+    public void deletePlugin(Bundle bundle) {
+
+        String pluginZipPath = bundle.getString(Constant.KEY_PLUGIN_ZIP_PATH);
+        InstalledPlugin installedPlugin = null;
+        try {
+            installedPlugin = installPlugin(pluginZipPath, null, true);
+            boolean deleteInstalledPlugin = deleteInstalledPlugin(installedPlugin.UUID);
+            Log.e("hello", deleteInstalledPlugin + "");
+            if (mPpsController != null) {
+                mPpsController.exit();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     protected void callApplicationOnCreate(String partKey) throws RemoteException {
         Map map = mPluginLoader.getLoadedPlugin();
@@ -140,6 +168,7 @@ public abstract class FastPluginManager extends PluginManagerThatUseDynamicLoade
             mPluginLoader.loadPlugin(partKey);
         }
     }
+
     public void startPluginActivity(Context context, InstalledPlugin installedPlugin, String partKey, Intent pluginIntent) throws RemoteException, TimeoutException, FailedException {
         Intent intent = convertActivityIntent(installedPlugin, partKey, pluginIntent);
         if (!(context instanceof Activity)) {
@@ -147,6 +176,7 @@ public abstract class FastPluginManager extends PluginManagerThatUseDynamicLoade
         }
         context.startActivity(intent);
     }
+
     public Intent convertActivityIntent(InstalledPlugin installedPlugin, String partKey, Intent pluginIntent) throws RemoteException, TimeoutException, FailedException {
         loadPlugin(installedPlugin.UUID, partKey);
         return mPluginLoader.convertActivityIntent(pluginIntent);

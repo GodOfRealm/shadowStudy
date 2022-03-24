@@ -39,6 +39,8 @@ import com.demo.source.constant.Constant;
 import com.demo.source.host.plugin_view.HostAddPluginViewActivity;
 import com.tencent.shadow.dynamic.host.EnterCallback;
 
+import java.io.File;
+
 
 public class MainActivity extends Activity {
 
@@ -57,17 +59,14 @@ public class MainActivity extends Activity {
         final Spinner partKeySpinner = new Spinner(this);
         ArrayAdapter<String> partKeysAdapter = new ArrayAdapter<>(this, R.layout.part_key_adapter);
         partKeysAdapter.addAll(
-                Constant.PART_KEY_PLUGIN_MAME,
-                Constant.PART_KEY_PLUGIN_HELLO_APP
+                Constant.PART_KEY_PLUGIN_HELLO_APP,
+                Constant.PART_KEY_PLUGIN_MAME
         );
         partKeySpinner.setAdapter(partKeysAdapter);
 
         EditText editText = new EditText(this);
         editText.setText("plugin-debug.zip");
 
-
-        EditText uninstallPluginEt = new EditText(this);
-        uninstallPluginEt.setHint("要卸载插件的uuid");
 
         Button startPluginButton = new Button(this);
         startPluginButton.setText(R.string.start_plugin);
@@ -76,7 +75,6 @@ public class MainActivity extends Activity {
         Button uninstallPluginButton = new Button(this);
         uninstallPluginButton.setText("卸载插件");
 
-        rootView.addView(uninstallPluginEt);
         rootView.addView(editText);
         rootView.addView(partKeySpinner);
         rootView.addView(uninstallPluginButton);
@@ -84,7 +82,14 @@ public class MainActivity extends Activity {
 
         uninstallPluginButton.setOnClickListener(view -> {
             Bundle bundle = new Bundle();
-            bundle.putString(Constant.KEY_EXTRAS, uninstallPluginEt.getText().toString());
+            String zipPath = editText.getText().toString();
+            String partKey = (String) partKeySpinner.getSelectedItem();
+
+            String zipabsolutePath = new File(this.getFilesDir(), zipPath).getAbsolutePath();
+            bundle.putString(Constant.KEY_PLUGIN_ZIP_PATH, zipabsolutePath);
+            bundle.putString(Constant.KEY_PLUGIN_PART_KEY, partKey);
+
+
             HostApplication.getApp().loadPluginManager(PluginHelper.getInstance().pluginManagerFile);
             HostApplication.getApp().getPluginManager().enter(this, Constant.FROM_ID_UNINSTALL_PLUGIN, bundle, new EnterCallback() {
                 @Override

@@ -2,6 +2,7 @@ package com.demo.test.plugin.hello_app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Process
 import android.util.Log
 import com.alibaba.android.arouter.launcher.ARouter
 import kotlinx.android.synthetic.main.activity_main.*
@@ -11,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         test_go.setOnClickListener {
-            Log.e("hello","aaa")
+            Log.e("hello", "aaa")
             ARouter.getInstance().build("/hello/second").navigation()
         }
     }

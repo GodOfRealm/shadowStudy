@@ -105,9 +105,7 @@
         <service
             android:name="com.demo.source.host.HiProcessPPS"
             android:process=":Hi" />
-        <service
-            android:name="com.demo.source.host.UninstallPluginProcessPPS"
-            android:process=":uninstallPlugin" />
+
 
         <activity
             android:name="com.demo.source.host.PluginLoadActivity"
